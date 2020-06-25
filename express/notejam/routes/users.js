@@ -23,6 +23,7 @@ router.post('/signup', function(req, res) {
   };
   req.models.User.create(data, function(err, message) {
     if (err) {
+      console.error('error on signup', err);
       res.locals.errors = helpers.formatModelErrors(err);
     } else {
       req.flash(
